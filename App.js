@@ -33,7 +33,7 @@ export default function App() {
   let initialLoginState = {
     isLoading: true,
     email: null,
-    userToken: null,
+    userToken: "temp",
   };
 
   const CustomDefaultTheme = {
@@ -100,8 +100,8 @@ export default function App() {
   const authContext = React.useMemo(() => ({
     signIn: async (foundUser) => {
       // let record = foundUser[0];
-      // const userToken = record.UserToken;
-      // const userEmail = record.Email;
+      const userToken = "temp";
+      const userEmail = "nate";
       // const userID = record.UserID.toString();
       // const companyID = record.CompanyID.toString();
       // const userName = record.Name;
@@ -187,7 +187,7 @@ export default function App() {
       } catch (e) {
         console.log(e);
       }
-      //dispatch({ type: "RETRIEVE_TOKEN", token: userToken });
+      dispatch({ type: "RETRIEVE_TOKEN", token: userToken });
     }, 1000);
   }, []);
 
