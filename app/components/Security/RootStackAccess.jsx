@@ -1,7 +1,7 @@
 import React from "react";
 import { createStackNavigator } from "@react-navigation/stack";
 import { createDrawerNavigator } from "@react-navigation/drawer";
-// import { DrawerContect } from "./DrawerContent";
+import { DrawerContect } from "./DrawerContent";
 import InternetConnectionAlert from "react-native-internet-connection-alert";
 import FlashMessage from "react-native-flash-message";
 import Main from "../Screens/Main";
@@ -20,11 +20,11 @@ const RootStackAccess = ({ navigation }) => (
   >
     <FlashMessage position="top" />
     <RootStack.Navigator
-      //   drawerContent={(props) => <DrawerContect {...props} />}
+      drawerContent={(props) => <DrawerContect {...props} />}
       screenOptions={{
         drawerPosition: "left",
         headerStyle: {
-          backgroundColor: "#9b111e",
+          backgroundColor: "#003153",
         },
         headerTintColor: "#fff",
         headerTitleStyle: {
@@ -37,7 +37,7 @@ const RootStackAccess = ({ navigation }) => (
         name="Main"
         component={Main}
         options={(navigation) => ({
-          title: "Main Screen",
+          title: "My Places",
           //   headerLeft: () => MainFunctions.ToolbarIconsReturnLeft(navigation),
         })}
       />

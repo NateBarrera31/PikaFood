@@ -101,29 +101,25 @@ export default function App() {
     signIn: async (foundUser) => {
       // let record = foundUser[0];
       const userToken = "temp";
-      const userEmail = "nate";
-      // const userID = record.UserID.toString();
-      // const companyID = record.CompanyID.toString();
-      // const userName = record.Name;
-      // const databaseID = record.DatabaseID.toString();
+      const userEmail = "test@gmail.com";
+      const userID = "1";
+      const userName = "Nate";
       let items = [
         ["userToken", userToken],
         ["userEmail", userEmail],
         ["userID", userID],
-        ["companyID", companyID],
         ["userName", userName],
-        ["databaseID", databaseID],
       ];
-      if (userEmail == "AvatarTest@avatarcloud.net") {
-        // MainFunctions.CreateTempTableForDemo();
-        // AsyncStorage.multiSet(items, () => {});
-      } else {
-        try {
-          // AsyncStorage.multiSet(items, () => {});
-        } catch (e) {
-          console.log(e);
-        }
+      // if (userEmail == "AvatarTest@avatarcloud.net") {
+      //   // MainFunctions.CreateTempTableForDemo();
+      //   // AsyncStorage.multiSet(items, () => {});
+      // } else {
+      try {
+        AsyncStorage.multiSet(items, () => {});
+      } catch (e) {
+        console.log(e);
       }
+      // }
       dispatch({ type: "LOGIN", id: userEmail, token: userToken });
     },
     singOut: async () => {
@@ -177,7 +173,7 @@ export default function App() {
     setTimeout(async () => {
       let userToken = null;
       try {
-        //userToken = await AsyncStorage.getItem("userToken");
+        userToken = await AsyncStorage.getItem("userToken");
         if (userToken != null) {
           //TODO  disable while developing app
           // if (netInfo.isConnected) {
