@@ -20,6 +20,7 @@ import AsyncStorage from "@react-native-async-storage/async-storage";
 // import * as SQLite from "expo-sqlite";
 //import * as MainFunctions from "./app/components/Share";
 import { useNetInfo } from "@react-native-community/netinfo";
+import Main from "./app/components/Screens/Main";
 
 const Stack = createStackNavigator();
 const Drawer = createDrawerNavigator();
@@ -132,7 +133,7 @@ export default function App() {
         "databaseID",
       ];
       try {
-        ///await AsyncStorage.multiRemove(items);
+        await AsyncStorage.multiRemove(items);
       } catch (e) {
         console.log(e);
       }
@@ -190,7 +191,7 @@ export default function App() {
   if (loginState.isLoading) {
     return (
       <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
-        <ActivityIndicator size="large" />
+        <ActivityIndicator size="small" />
       </View>
     );
   }

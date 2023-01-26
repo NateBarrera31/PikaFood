@@ -62,7 +62,7 @@ export function DrawerContect(props) {
             )}
             label="Home"
             onPress={() => {
-              props.navigation.navigate("MainTab");
+              props.navigation.navigate("Main");
             }}
           />
           <DrawerItem
