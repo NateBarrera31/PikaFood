@@ -35,6 +35,7 @@ const RootStackAccess = ({ navigation }) => (
       {/* <RootStack.Screen name="MainTab" component={MainTab} options={(navigation)=>({ title:'Daily Oil Production'} )} />*/}
       <RootStack.Screen
         name="Main"
+        header={false}
         component={Main}
         options={(navigation) => ({
           title: "My Places",
