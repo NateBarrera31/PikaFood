@@ -3,6 +3,7 @@ import MapView, { PROVIDER_GOOGLE, Callout } from "react-native-maps";
 import Icon from "react-native-vector-icons/MaterialIcons";
 import * as Location from "expo-location";
 import { ActivityIndicator } from "react-native-paper";
+import Modal from "react-native-modal";
 import {
   StyleSheet,
   Text,
@@ -25,6 +26,8 @@ const Main = ({ navigation }) => {
   const [location, setLocation] = useState(null);
   const [errorMsg, setErrorMsg] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
+  const [SearchModal, setSearchModal] = useState(true);
+
   const [region, setRegion] = React.useState({
     latitude: 37.78825,
     longitude: -122.4324,
@@ -71,6 +74,69 @@ const Main = ({ navigation }) => {
       <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
         <ActivityIndicator size="small" />
       </View>
+    );
+  }
+
+  if (SearchModal) {
+    return (
+      <Modal
+        style={{ justifyContent: "flex-end", margin: 0 }}
+        isVisible={true}
+        backdropOpacity={0.2}
+        onBackdropPress={(e) => SearchModal(false)}
+      >
+        <View
+          style={{
+            marginTop: "auto",
+            width: "100%",
+            height: "40%",
+            borderRadius: 15,
+            alignItems: "stretch",
+            borderWidth: 1,
+            borderStyle: "solid",
+            backgroundColor: "#D8D8D8",
+          }}
+        >
+          <View
+            style={{
+              flexDirection: "row",
+              justifyContent: "space-between",
+              paddingHorizontal: 15,
+              backgroundColor: "white",
+              borderBottomColor: "#696969",
+              borderBottomWidth: 1,
+              paddingBottom: 11,
+              borderTopRightRadius: 13,
+              borderTopLeftRadius: 15,
+            }}
+          >
+            <TouchableOpacity
+              style={{ marginTop: 15 }}
+              onPress={(e) => SearchModal(false)}
+            >
+              <Icon name="close" size={26} color={"#555"} />
+            </TouchableOpacity>
+            <Text
+              style={{
+                marginTop: 15,
+                fontSize: 19,
+                color: "#383838",
+                fontWeight: "bold",
+              }}
+            >
+              {"Filter"}
+            </Text>
+            <TouchableOpacity
+              style={{ marginTop: 17 }}
+              onPress={(e) => SearchModal(false)}
+            >
+              <Text style={{ fontSize: 14, color: "blue", fontWeight: "600" }}>
+                Reset
+              </Text>
+            </TouchableOpacity>
+          </View>
+        </View>
+      </Modal>
     );
   }
 
