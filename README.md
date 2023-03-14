@@ -1,5 +1,9 @@
 # PikaFood
 
+Mobile application using React-Native, Expo and apis. display map in your current location using google maps. 
+And navigate in multipage application using a Navigation bar. Have fun!
+
+
 START PROJECT:
 command: "npm start" or "npx start". "expo start" also works.
 stop server: "ctrl + c"
